@@ -1,16 +1,20 @@
 import React from 'react'
 
 
-const MenuItem = ({menu}) => {
+const MenuList = () => {
     return (
-    <a class="menu" href="#">{menu}</a>
-    )
-}
-
-const MenuList = ({menu_items}) => {
-    return (
-        <div class='menu_item'>
-            {menu_items.map((menu) => <MenuItem menu={menu}/>)}
+         <div class="header_menu">
+            <ul class="menu_list">
+               <li class="menu_item">
+                    <a class='menu_link'href="#">Пользователи</a>
+               </li>
+               <li class="menu_item">
+                    <a class='menu_link'href="#">Проекты</a>
+               </li>
+               <li class="menu_item">
+                    <a class='menu_link'href="#">Заметки</a>
+               </li>
+            </ul>
         </div>
     )
 }

@@ -12,21 +12,15 @@ class App extends React.Component {
         super(props)
         this.state = {
             'users': [],
-            'menu_items': [],
             'footer': {}
         }
     }
 
     componentDidMount() {
-
-        const menu_items = ['Users', 'Projects', 'Notes']
-        const footer = {'hometown':'Moscow','date': new Date()}
         axios.get('http://127.0.0.1:8000/api/users').then(response => {
             const users = response.data
                 this.setState(
                 {'users': users},
-                {'menu_items': menu_items},
-                {'footer': footer}
                  )
         }).catch(error => console.log(error))
     }
@@ -34,9 +28,9 @@ class App extends React.Component {
     render () {
         return (
             <div>
-                <MenuList menu = {this.state.menu_items}/>
+                <MenuList/>
                 <UserList users={this.state.users}/>
-                <Footer footer={this.state.footer}/>
+                <Footer/>
             </div>
         )
     }
