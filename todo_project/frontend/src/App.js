@@ -12,7 +12,6 @@ class App extends React.Component {
         super(props)
         this.state = {
             'users': [],
-            'footer': {}
         }
     }
 

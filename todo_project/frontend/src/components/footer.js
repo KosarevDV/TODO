@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const Footer = () => {
     return (
         <ul class="footer_list">
@@ -7,7 +8,7 @@ const Footer = () => {
                 <div>Москва</div>
             </li>
             <li class="footer_item">
-                <div>Функция отображения текущей даты</div>
+                <div>{new Date().toLocaleDateString()}</div>
             </li>
        </ul>
     )
