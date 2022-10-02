@@ -9,13 +9,18 @@ from .serializers import UserModelSerializer
 
 class UserModelViewSet(viewsets.ViewSet):
     renderer_classes = [JSONRenderer]
+    #
+    # def get(self, request):
+    #     queryset = User.objects.all()
+    #     serializer = UserModelSerializer()
+    #     return Response(serializer.data)
 
     def list(self, request):
         queryset = User.objects.all()
-        serializer = UserModelSerializer()
+        serializer = UserModelSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def retreive(self, request, pk=None):
         queryset = get_object_or_404(User, pk=pk)
-        serializer = UserModelSerializer()
+        serializer = UserModelSerializer(queryset, many=True)
         return Response(serializer.data)
