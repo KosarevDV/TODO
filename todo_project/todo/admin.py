@@ -4,5 +4,5 @@ from todo.models import Project, TODO
 
 
 
-admin.site.register(Project)
-admin.site.register(TODO)
+admin.site.register(Project, admin.ModelAdmin)
+admin.site.register(TODO, admin.ModelAdmin)

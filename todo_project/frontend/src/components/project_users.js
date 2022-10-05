@@ -14,6 +14,7 @@ const UserItem = ({user}) => {
 
 const ProjectUserList = ({items}) => {
     let { id } = useParams();  // позволит получить параметры, переданные в адрес роутера
+//    let id = useParams();
     let filtered_items = items.filter((item) => item.project.id == id)  //получаем участников проекта
     return (
         <table>
