@@ -1,7 +1,7 @@
 from django.test import TestCase
 import json
 from rest_framework import status
-from rest_framework.test import APIRequestFactory, APIClient, APITestCase
+from rest_framework.test import APIRequestFactory, APIClient, APITestCase, CoreAPIClient
 from mixer.backend.django import mixer
 from django.contrib.auth.models import User
 from .views import UserModelViewSet
@@ -58,4 +58,10 @@ class TestProjectViewSet(APITestCase):
 
     def tearDown(self) -> None:
         pass
+
+
+
+
+
+
 
