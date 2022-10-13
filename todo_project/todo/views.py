@@ -23,6 +23,11 @@ class ProjectModelViewSet(ModelViewSet):
     pagination_class = ProjectLimitOffsetPagination
     filter_class = ProjectFilter
 
+    # def get_serializer_class(self):
+    #     if self.request.method in ['GET']:
+    #         return ProjectModelSerializer
+    #     return ProjectModelSerializerBase
+
 
 class TODOModelViewSet(ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
