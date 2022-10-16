@@ -23,3 +23,9 @@ class TODOModelSerializer(ModelSerializer):
     class Meta:
         model = TODO
         fields = '__all__'
+
+
+class TODOModelSerializerVersion2(ModelSerializer):
+    class Meta:
+        model = TODO
+        exclude = ['created_at', 'updated_at']
