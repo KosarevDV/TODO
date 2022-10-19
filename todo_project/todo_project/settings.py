@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'rest_framework',
     'django_filters',
     'users',
@@ -173,4 +174,8 @@ REST_FRAMEWORK = {
     # 'DEFAULT_VERSIONING_CLASS':'rest_framework.versioning.QueryParameterVersioning',
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.AcceptHeaderVersioning',
 
+}
+
+GRAPHENE = {
+    "SCHEMA": "schema.schema"
 }
