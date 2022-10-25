@@ -55,24 +55,23 @@ class Query(graphene.ObjectType):
         return TODO.objects.all()
 
 
-# class UserMutation(graphene.Mutation):
-#     class Arguments:
-#         id = graphene.ID()
-#         firstname = graphene.String(required=True)
-#         lastname = graphene.String(required=True)
-#         user = graphene.Field(UserType)
-#
-#     @classmethod
-#     def mutate(cls, root, info, firstname, lastname, id):
-#         user = User.objects.get(pk=id)
-#         user.firstname = firstname
-#         user.lastname = lastname
-#         user.save()
-#         return UserMutation(user=user)
-#
-#
-# class Mutation(graphene.ObjectType):
-#     update_user = UserMutation.Field()
+class UserMutation(graphene.Mutation):
+    class Arguments:
+        id = graphene.ID()
+        firstname = graphene.String(required=True)
+        lastname = graphene.String(required=True)
+
+    @classmethod
+    def mutate(cls, root, info, firstname, lastname, id):
+        user = User.objects.get(pk=id)
+        user.firstname = firstname
+        user.lastname = lastname
+        user.save()
+        return UserMutation(user=user)
+
+
+class Mutation(graphene.ObjectType):
+    update_user = UserMutation.Field()
 
 
 schema = graphene.Schema(query=Query)
