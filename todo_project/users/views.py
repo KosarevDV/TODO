@@ -8,22 +8,23 @@ from .models import User
 from .serializers import UserModelSerializer
 
 
-class UserModelViewSet(viewsets.ViewSet):
-    renderer_classes = [JSONRenderer]
+class UserModelViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserModelSerializer
 
-    def list(self, request):
-        queryset = User.objects.all()
-        serializer = UserModelSerializer()
-        return Response(serializer.data)
 
-    def retreive(self, request, pk=None):
-        queryset = get_object_or_404(User, pk=pk)
-        serializer = UserModelSerializer()
-        return Response(serializer.data)
-
-# @api_view(['LIST', 'RETRIEVE'])
-# @renderer_classes([JSONRenderer])
-# def user_view(request):
-#     users = User.objects.all()
-#     serializer = UserModelSerializer(users, many=True)
-#     return Response(serializer.data)
+    # renderer_classes = [JSONRenderer]
+    #
+    # def get(self, request):
+    #     queryset = User.objects.all()
+    #     serializer = UserModelSerializer()
+    #     return Response(serializer.data)
+    #
+    # def list(self, request, queryset):
+    #     serializer = UserModelSerializer(queryset, many=True)
+    #     return Response(serializer.data)
+    #
+    # def retreive(self, request, pk=None):
+    #     queryset = get_object_or_404(User, pk=pk)
+    #     serializer = UserModelSerializer(queryset, many=True)
+    #     return Response(serializer.data)
