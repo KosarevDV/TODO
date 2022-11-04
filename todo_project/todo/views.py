@@ -20,22 +20,16 @@ class ProjectModelViewSet(ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectModelSerializer
     pagination_class = ProjectLimitOffsetPagination
-    filterset_class = ProjectFilter
+    filter_class = ProjectFilter
 
 
-class ToDoViewSet(ModelViewSet):
+class TODOModelViewSet(ModelViewSet):
     queryset = TODO.objects.all()
     serializer_class = TODOModelSerializer
     pagination_class = TODOLimitOffsetPagination
     filterset_fields = ['project']
 
-
-    def destroy(self, request, *args, **kwargs):
-        try:
-            instance = self.get_object()
-            instance.is_active = False
-            instance.save()
-        except:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-        else:
-            return Response(status=status.HTTP_204_NO_CONTENT)
+    def __delete__(self, request, pk):
+        instance = self.get_object(pk=pk)
+        instance.is_active = False
+        return Response(status=status.HTTP_204_NO_CONTENT)
