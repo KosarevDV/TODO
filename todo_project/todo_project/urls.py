@@ -40,10 +40,11 @@ schema_view = get_schema_view(
 )
 
 
+
 router = DefaultRouter()
 router.register('users', UserModelViewSet, basename='user')
 router.register('projects', ProjectModelViewSet)
-router.register('todo', TODOModelViewSet)
+router.register('todo', ToDoViewSet)
 
 
 urlpatterns = [

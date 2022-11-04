@@ -8,3 +8,4 @@ class ProjectFilter(filters.FilterSet):
     class Meta:
         model = Project
         fields = ['name']
+ #       lookup_field = 'name'
