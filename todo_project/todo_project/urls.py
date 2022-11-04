@@ -21,10 +21,11 @@ from todo.views import ProjectModelViewSet, TODOModelViewSet
 from rest_framework.authtoken import views
 
 
+
 router = DefaultRouter()
 router.register('users', UserModelViewSet, basename='user')
 router.register('projects', ProjectModelViewSet)
-router.register('todo', TODOModelViewSet)
+router.register('todo', ToDoViewSet)
 
 
 urlpatterns = [
