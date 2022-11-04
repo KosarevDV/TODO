@@ -1,11 +1,16 @@
 import React from 'react'
 
-const Footer = ({footer}) => {
+
+const Footer = () => {
     return (
-        <div class='footer'>
-            {footer.hometown}
-            {footer.date}
-        </div>
+        <ul class="footer_list">
+            <li class="footer_item">
+                <div>Москва</div>
+            </li>
+            <li class="footer_item">
+                <div>{new Date().toLocaleDateString()}</div>
+            </li>
+       </ul>
     )
 }
 
